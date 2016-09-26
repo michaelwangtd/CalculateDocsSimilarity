@@ -1,7 +1,13 @@
 # -*-coding:utf-8-*-
 import os
+from tqdm import tqdm
 
-print(os.path.sep)  # \
+
+
+# for i in tqdm([400,500,600]):
+#     print(i)
+
+# print(os.path.sep)  # \
 
 # project_dir = os.path.dirname(os.path.abspath(__file__))
 # print(project_dir)

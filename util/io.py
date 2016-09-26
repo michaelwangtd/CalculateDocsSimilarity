@@ -1,6 +1,22 @@
 # -*-coding:utf-8-*-
 import os
 import sys
+import pickle
+
+
+def loadPersistenceData(subdirName,sourceFileName):
+    """
+    :param subdirName:
+    :param sourceFileName:
+    :return:返回持久化的对象
+    """
+    # 获取根目录
+    rootPath = os.path.dirname(os.path.abspath(os.path.dirname(sys.argv[0])))
+    if subdirName != None and sourceFileName != None and subdirName != '' and sourceFileName != '':
+        filePath = os.path.join(rootPath,subdirName,sourceFileName)
+        return pickle.load(open(filePath,'rb'))
+
+
 
 def getInputStream(fullPath,encode = 'utf-8'):
     """
