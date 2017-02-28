@@ -29,6 +29,7 @@ if __name__ == '__main__':
         # 根据话题数生成LDA模型
         print('开始训练LDA模型，主题数为：'+str(topicNum))
         LDAModel = models.LdaModel(corpus,num_topics=topicNum,id2word=dictionary,passes=15)
+        # LDAModel = gensim.models.ldamodel.LdaModel(corpus,num_topics=topicNum,id2word=dictionary,passes=15)
 
         # 输出LDA主题
         print('输出主题数为：'+ str(topicNum) + ',显示主题词语数为：' + str(numWord) + '的主题')
@@ -39,11 +40,17 @@ if __name__ == '__main__':
         print('输出文档对应主题的权重')
         # for i in range(len(corpus)):
         #     topicWeightList = LDAModel[corpus[i]]
-        #     print('文档：' + str(i+1) + '相应的主题权重为：' + str(topicWeightList))
-        #
-        # topicWeightMatrix = LDAModel[corpus]
-        # for topicWeightList in topicWeightMatrix:
-        #     print('文档x相应的主题权重为：' + str(topicWeightList))
+        #     print('文档：' + str(i+1) + '相应的主题权重为：' , str(topicWeightList))
+
+        # for i in range(len(corpus)):
+        #     print('LDAModel[corpus[i]]的类型为：',type(LDAModel[corpus[i]]))
+        #     for item in LDAModel[corpus[i]]:
+        #         print(item)
+
+        topicWeightMatrix = LDAModel[corpus]    # <gensim.interfaces.TransformedCorpus object at 0x000001ADDDF2CDD8>
+        print('topicWeightMatrix的类型为：',type(topicWeightMatrix))
+        for topicWeightList in topicWeightMatrix:
+            print('文档x相应的主题权重为：' + str(topicWeightList))
 
 
 

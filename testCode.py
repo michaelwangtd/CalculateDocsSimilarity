@@ -1,7 +1,12 @@
 # -*-coding:utf-8-*-
 import os
 from tqdm import tqdm
+import pickle
 
+# testList = ['a','b','c']
+# pickle.dump(testList,open('testOBJ.obj','wb'))
+# reList = pickle.load(open('testOBJ.obj','rb'))
+# print(reList)
 
 
 # for i in tqdm([400,500,600]):
